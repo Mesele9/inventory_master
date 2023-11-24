@@ -22,4 +22,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ['user', 'user_role']
+        fields = '__all__'

@@ -53,7 +53,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     permission_classes = [GroupPermission]
 
 class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
+    queryset = Item.objects.all().order_by('item_name')
     serializer_class = ItemSerializer
     permission_classes = [GroupPermission]
 

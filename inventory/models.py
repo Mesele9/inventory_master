@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User as DjangoUser, Group
+from django.contrib.auth.models import User, Group
 
 class Category(models.Model):
     category = models.CharField(max_length=255, unique=True)
@@ -39,8 +39,9 @@ class Item(models.Model):
 
 # Using Django's built-in User model for authentication
 class UserProfile(models.Model):
-    user = models.OneToOneField(DjangoUser, on_delete=models.CASCADE)
-    user_role = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
+
